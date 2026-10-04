@@ -54,7 +54,7 @@ class Lexer:
         # --- PALABRAS RESERVADAS E IDENTIFICADORES ---
         # TODO: Agregar patrones para palabras clave e identificadores
         # ('KEYWORD',        r'...'),
-        # ('ID',             r'...'),
+        ('ID',             r'[a-zA-Z_]\w*'),
 
         # --- OPERADORES Y DELIMITADORES ---
         # TODO: Agregar patrones para operadores (+, -, ==, =, etc.) y delimitadores ((, ), {, }, ;, etc.)
@@ -74,8 +74,12 @@ class Lexer:
     KEYWORD_MAP = {
         'int': 'PR_INT',
         'float': 'PR_FLOAT',
-        # 'if': 'PR_IF',
-        # 'else': 'PR_ELSE',
+        'if': 'PR_IF',
+        'else': 'PR_ELSE',
+        'while': 'PR_WHILE',
+        'for': 'PR_FOR',
+        'return': 'PR_RETURN',
+        'void': 'PR_VOID',
         # ... agregar las demás palabras reservadas necesarias
     }
 
@@ -118,6 +122,8 @@ class Lexer:
             # TODO: Convertir tipo KEYWORD al token específico usando KEYWORD_MAP
             # elif kind == 'KEYWORD':
             #     ...
+            elif kind == 'ID' and value in self.KEYWORD_MAP:
+                tokens.append(Token(self.KEYWORD_MAP[value], value, line_num, col_num))
 
             # TODO: Manejar casos de errores léxicos
             elif kind == 'MISMATCH':
