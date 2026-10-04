@@ -1,4 +1,5 @@
 import sys
+from lexer import Lexer
 
 if len(sys.argv) < 2:
     print("Uso: python main.py <archivo>")
@@ -12,4 +13,10 @@ except FileNotFoundError:
     print(f"Error: No se encontró el archivo '{ruta}'")
     sys.exit(1)
 
-print(codigo)
+lexer = Lexer(codigo)
+tokens, errores = lexer.tokenize()
+
+for t in tokens:
+    print(t)
+for e in errores:
+    print(e) 
