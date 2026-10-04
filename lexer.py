@@ -47,8 +47,8 @@ class Lexer:
 
         # --- LITERALES ---
         # TODO: Agregar patrones para números enteros, flotantes y strings
-        # ('FLOAT_LITERAL',  r'...'),
-        # ('INT_LITERAL',    r'...'),
+        ('FLOAT_LITERAL',  r'\d+\.\d+'),
+        ('INT_LITERAL',    r'\d+'),
         # ('STRING_LITERAL', r'...'),
 
         # --- PALABRAS RESERVADAS E IDENTIFICADORES ---
@@ -124,7 +124,7 @@ class Lexer:
                 errors.append(LexicalError("Carácter no reconocido", value, line_num, col_num))
 
             # TODO: Guardar los tokens válidos restantes en la lista 'tokens'
-            # else:
-            #     tokens.append(Token(kind, value, line_num, col_num))
+            else:
+                tokens.append(Token(kind, value, line_num, col_num))
 
         return tokens, errors
