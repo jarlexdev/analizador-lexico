@@ -42,7 +42,7 @@ class Lexer:
         ('SKIP',           r'[ \t\r]+'),
         
         # TODO: Agregar patrones para comentarios (única línea y multilínea)
-        # ('COMMENT_SINGLE', r'...'),
+        ('COMMENT_SINGLE', r'//.*'),
         # ('COMMENT_MULTI',  r'...'),
 
         # --- LITERALES ---
@@ -133,7 +133,9 @@ class Lexer:
 
             elif kind == 'SKIP':
                 continue
-
+            elif kind == 'COMMENT_SINGLE':
+                continue
+            
             # TODO: Manejar la lógica de actualización de líneas para comentarios multilínea
             # elif kind == 'COMMENT_MULTI':
             #     ...
