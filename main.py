@@ -17,6 +17,7 @@ lexer = Lexer(codigo)
 tokens, errores = lexer.tokenize()
 
 for t in tokens:
-    print(t)
+    lexema = f"'{t.value}'"
+    print(f"[TOKEN] Tipo: {t.type:<16} | Lexema: {lexema:<12} | Posición: [Línea {t.line}, Col {t.column}]")
 for e in errores:
-    print(e) 
+    print(f"[ERROR LÉXICO] {e.message} '{e.char}' en Posición: [Línea {e.line}, Col {e.column}]")
