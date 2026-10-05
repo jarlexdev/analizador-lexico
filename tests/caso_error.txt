@@ -1,0 +1,3 @@
+texto = "sin cerrar;
+x = 5; /* este comentario nunca se cierra
+y = 10;

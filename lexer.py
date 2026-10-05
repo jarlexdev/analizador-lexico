@@ -44,6 +44,7 @@ class Lexer:
         # TODO: Agregar patrones para comentarios (única línea y multilínea)
         ('COMMENT_SINGLE', r'//.*'),
         ('COMMENT_MULTI',  r'/\*[\s\S]*?\*/'),
+        ('UNTERMINATED_COMMENT', r'/\*[\s\S]*'),
 
         # --- LITERALES ---
         # TODO: Agregar patrones para números enteros, flotantes y strings
@@ -83,7 +84,7 @@ class Lexer:
 
         # --- CAPTURA DE ERRORES ---
         # TODO: Patrón para detectar cadenas sin cerrar
-        # ('UNTERMINATED_STRING', r'...'),
+        ('UNTERMINATED_STRING', r'"[^"\n]*'),
 
         # Comodín para capturar cualquier otro carácter no reconocido (Error Léxico)
         ('MISMATCH',       r'.'),
@@ -153,6 +154,10 @@ class Lexer:
             # TODO: Manejar casos de errores léxicos
             elif kind == 'MISMATCH':
                 errors.append(LexicalError("Carácter no reconocido", value, line_num, col_num))
+            elif kind == 'UNTERMINATED_STRING':
+                errors.append(LexicalError("Cadena sin cerrar", value, line_num, col_num))
+            elif kind == 'UNTERMINATED_COMMENT':
+                errors.append(LexicalError("Comentario sin cerrar", '/*', line_num, col_num))
 
             # TODO: Guardar los tokens válidos restantes en la lista 'tokens'
             else:
