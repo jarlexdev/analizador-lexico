@@ -1,3 +1,7 @@
-texto = "sin cerrar;
-x = 5; /* este comentario nunca se cierra
+int precio = 100$;
+float total = precio @ 2.5;
+int #contador = 0;
+texto = "cadena sin cerrar;
+int valido = 5;
+x = 5; /* comentario que nunca se cierra
 y = 10;
