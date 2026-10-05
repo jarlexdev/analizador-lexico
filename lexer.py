@@ -58,9 +58,28 @@ class Lexer:
 
         # --- OPERADORES Y DELIMITADORES ---
         # TODO: Agregar patrones para operadores (+, -, ==, =, etc.) y delimitadores ((, ), {, }, ;, etc.)
-        # ('OP_REL',         r'...'),
-        # ('OP_ASSIGN',      r'...'),
-        # ('DELIM_SEMICOLON',r'...'),
+        # Relacionales
+        ('OP_EQ',      r'=='),
+        ('OP_NEQ',     r'!='),
+        ('OP_LE',      r'<='),
+        ('OP_GE',      r'>='),
+        ('OP_LT', r'<'),
+        ('OP_GT', r'>'),
+        ('OP_ASSIGN', r'='),
+
+        # Aritmeticos
+        ('OP_PLUS',    r'\+'),
+        ('OP_MINUS',   r'-'),
+        ('OP_TIMES',   r'\*'),
+        ('OP_DIVIDE',  r'/'),
+
+        # Delimitadores
+        ('DELIM_LPAREN',  r'\('),
+        ('DELIM_RPAREN',  r'\)'),
+        ('DELIM_LBRACE',  r'\{'),
+        ('DELIM_RBRACE',  r'\}'),
+        ('DELIM_COMMA',   r','),
+        ('DELIM_SEMICOLON', r';'),
 
         # --- CAPTURA DE ERRORES ---
         # TODO: Patrón para detectar cadenas sin cerrar
