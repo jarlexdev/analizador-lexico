@@ -3,3 +3,9 @@ float pi = 3.14;
 int interes = 5;
 if (pi >= 3.0) { limite = limite + 1; }
 limite = 0; // reinicia el limite
+/* este comentario
+   ocupa tres
+   lineas */
+pi = 2.5;
+/* otro
+comentario */ limite = 7;

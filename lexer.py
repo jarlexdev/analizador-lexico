@@ -43,7 +43,7 @@ class Lexer:
         
         # TODO: Agregar patrones para comentarios (única línea y multilínea)
         ('COMMENT_SINGLE', r'//.*'),
-        # ('COMMENT_MULTI',  r'...'),
+        ('COMMENT_MULTI',  r'/\*[\s\S]*?\*/'),
 
         # --- LITERALES ---
         # TODO: Agregar patrones para números enteros, flotantes y strings
@@ -135,10 +135,14 @@ class Lexer:
                 continue
             elif kind == 'COMMENT_SINGLE':
                 continue
-            
+
             # TODO: Manejar la lógica de actualización de líneas para comentarios multilínea
-            # elif kind == 'COMMENT_MULTI':
-            #     ...
+            elif kind == 'COMMENT_MULTI':
+                saltos = value.count('\n')
+                if saltos > 0:
+                    line_num += saltos
+                    line_start = position + value.rfind('\n') + 1
+                continue
 
             # TODO: Convertir tipo KEYWORD al token específico usando KEYWORD_MAP
             # elif kind == 'KEYWORD':
