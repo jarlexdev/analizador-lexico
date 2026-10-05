@@ -9,3 +9,4 @@ limite = 0; // reinicia el limite
 pi = 2.5;
 /* otro
 comentario */ limite = 7;
+mensaje = "hola Mundo";
