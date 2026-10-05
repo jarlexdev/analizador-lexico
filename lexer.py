@@ -49,7 +49,7 @@ class Lexer:
         # TODO: Agregar patrones para números enteros, flotantes y strings
         ('FLOAT_LITERAL',  r'\d+\.\d+'),
         ('INT_LITERAL',    r'\d+'),
-        # ('STRING_LITERAL', r'...'),
+        ('STRING_LITERAL', r'"[^"\n]*"'),
 
         # --- PALABRAS RESERVADAS E IDENTIFICADORES ---
         # TODO: Agregar patrones para palabras clave e identificadores
