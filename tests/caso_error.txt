@@ -3,5 +3,6 @@ float total = precio @ 2.5;
 int #contador = 0;
 texto = "cadena sin cerrar;
 int valido = 5;
+int año = 1;
 x = 5; /* comentario que nunca se cierra
 y = 10;
